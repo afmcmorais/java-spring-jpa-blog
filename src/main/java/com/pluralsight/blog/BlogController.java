@@ -44,8 +44,8 @@ public class BlogController {
     public String categoryList(@PathVariable Long id, ModelMap modelMap) {
         Category category = categoryRepository.findById(id).orElse(null);
         modelMap.put("category", category);
-        List<Post> post = postRepository.findByCategory(category);
-        modelMap.put("post", post);
+        List<Post> posts = postRepository.findByCategory(category);
+        modelMap.put("posts", posts);
         List<Category> categories = categoryRepository.findAll();
         modelMap.put("categories", categories);
         return "category-list";
